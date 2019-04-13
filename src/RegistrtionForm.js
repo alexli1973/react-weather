@@ -12,7 +12,8 @@ class RegistrtionForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log('form is submitted', this.state.email);
+        //console.log('form is submitted', this.state.email);
+        console.log('form is submitted', this.testInput.value);
     }
     handleEmailChange(event) {
         console.log('email was changed', this);
@@ -26,9 +27,11 @@ class RegistrtionForm extends Component {
                     placeholder='E-mail'
                     value={this.state.email}
                     onChange={this.handleEmailChange}
+                    ref={(input) => this.testInput = input}
                 />
                 <button>Save</button>
             </form>
+
         )
     }
 }

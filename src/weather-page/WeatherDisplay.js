@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import LoaderDisplay from "./LoaderDisplay";
+import LoaderDisplay from "../LoaderDisplay";
 
 class WeatherDisplay extends Component {
     constructor() {
