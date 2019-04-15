@@ -9,6 +9,7 @@ import Weather from "./weather-page/weather";
 import Users from "./users-page/Users";
 import User from "./users-page/User";
 import UserDetail from "./users-page/UserDetail";
+import jsonData from './assets/data'
 
 // const PLACES = [
 //     { name: "Palo Alto", zip: "94303" },
@@ -33,6 +34,25 @@ const menu = [
 ];
 
 class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            data: null
+        };
+    }
+
+    componentDidMount() {
+        debugger;
+        const URL = "./assets/data.json";// ../assets/data.json
+
+        console.log(jsonData);
+
+        // fetch('./data/fakeData.json')
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         console.log('data:', data);
+        //     })
+    }
 
   render() {
     return (
