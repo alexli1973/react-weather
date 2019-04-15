@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import WeatherDisplay from './weather-page/WeatherDisplay'
-import Dropdown from "./Dropdown";
+import Dropdown from "./dropdown-page/Dropdown";
 import Header from "./Header";
 import RegistrtionForm from "./RegistrtionForm";
 import Weather from "./weather-page/weather";
+import Users from "./users-page/Users";
+import User from "./users-page/User";
+import UserDetail from "./users-page/UserDetail";
 
 // const PLACES = [
 //     { name: "Palo Alto", zip: "94303" },
@@ -35,6 +38,7 @@ class App extends Component {
     return (
 
     <Router>
+        <Switch>
       <div className="App">
           <Header/>
           <Route path="/"
@@ -42,6 +46,9 @@ class App extends Component {
                  exact={true}
           />
           <Route path="/weather" component={Weather}/>
+          <Route path="/dropdown" component={Dropdown}/>
+          <Route path="/users" component={Users} exact/>
+          <Route exact path="/users/:id" component={UserDetail}/>
 
             {/*<Header items = {menu}/>*/}
             {/*<RegistrtionForm/>*/}
@@ -50,6 +57,7 @@ class App extends Component {
 
 
       </div>
+        </Switch>
     </Router>
     );
   }

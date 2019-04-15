@@ -11,7 +11,9 @@ class Header extends Component{
             <div>
                 <Navbar bg="light" expand="lg">
                     <Navbar.Brand href="/">Home</Navbar.Brand>
-                    <Link to="/weather">Weather</Link>
+                    <Navbar><Link to="/weather">Weather</Link></Navbar>
+                    <Navbar><Link to="/dropdown">Dropdown</Link></Navbar>
+                    <Navbar><Link to="/users">Users</Link></Navbar>
 
                 </Navbar>
                 {/*{this.props.items.map((item, index) =>*/}

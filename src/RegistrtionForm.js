@@ -4,16 +4,24 @@ class RegistrtionForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: ''
+            user: {
+                name: '',
+                surname: ''
+            }
         };
-        this.handleEmailChange = this.handleEmailChange.bind(this);
+        //this.handleNameChange = this.handleNameChange.bind(this);
+        //this.handleSubnameChange = this.handleSubnameChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(event) {
         event.preventDefault();
+        //const data = new FormData(event.target);
         //console.log('form is submitted', this.state.email);
-        console.log('form is submitted', this.testInput.value);
+        //console.log('form is submitted', this.testInput.value);
+        this.setState({user:{name: this.refs.name.value, surname: this.refs.surname.value}});
+        console.log(this.refs);
+        this.props.addUser({name: this.refs.name.value, surname: this.refs.surname.value});
     }
     handleEmailChange(event) {
         console.log('email was changed', this);
@@ -21,17 +29,29 @@ class RegistrtionForm extends Component {
     }
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    type='text'
-                    placeholder='E-mail'
-                    value={this.state.email}
-                    onChange={this.handleEmailChange}
-                    ref={(input) => this.testInput = input}
-                />
-                <button>Save</button>
-            </form>
+            <div>
 
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        type='text'
+                        placeholder='Name'
+                        ref='name'
+                        //value={this.state.name}
+                      //  onChange={this.handleEmailChange}
+                        //ref={(input) => this.testInput = input}
+                    />
+                    <input
+                        type='text'
+                        placeholder='Surname'
+                        ref='surname'
+                        //value={this.state.surname}
+                       // onChange={this.handleEmailChange}
+                        //ref={(input) => this.testInput = input}
+                    />
+                    <button>Save</button>
+                </form>
+            <p>{JSON.stringify(this.state.user)}</p>
+            </div>
         )
     }
 }
